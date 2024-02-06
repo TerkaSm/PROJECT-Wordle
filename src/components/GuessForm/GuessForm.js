@@ -1,13 +1,12 @@
 import React from 'react';
 
-function GuessForm({handleAddGuess}) {
-  const [guess, setGuess] = React.useState('')
+function GuessForm({handleSubmitGuess}) {
+  const [tentativeGuess, setTentativeGuess] = React.useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log({guess})
-    handleAddGuess(guess)
-    setGuess('')
+    handleSubmitGuess(tentativeGuess)
+    setTentativeGuess('')
   }
 
   return (
@@ -20,9 +19,9 @@ function GuessForm({handleAddGuess}) {
         // minLength nefunguje ve spojení s metodou toUpperCase(), vyřešeno pomocí pattern atributu a title
         pattern="[a-zA-Z]{5}"
         title="5 letter word"
-        value={guess}
+        value={tentativeGuess}
         onChange={(e) => {
-          setGuess(e.target.value.toUpperCase())
+          setTentativeGuess(e.target.value.toUpperCase())
         }}
         id="guess-input" type="text" />
     </form>
