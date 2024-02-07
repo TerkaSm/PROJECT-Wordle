@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessForm({handleSubmitGuess}) {
+function GuessForm({gameStatus, handleSubmitGuess}) {
   const [tentativeGuess, setTentativeGuess] = React.useState('');
 
   const handleSubmit = (e) => {
@@ -14,6 +14,7 @@ function GuessForm({handleSubmitGuess}) {
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         required
+        disabled={gameStatus !== 'running'}
         minLength={5}
         maxLength={5}
         // minLength nefunguje ve spojení s metodou toUpperCase(), vyřešeno pomocí pattern atributu a title
