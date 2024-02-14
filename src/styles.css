@@ -30,6 +30,17 @@ body {
   }
 }
 
+.refresh-wrapp {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.refresh-wrapp:hover {
+  transform: rotate(250deg);
+}
+
 button {
   margin: 0;
   padding: 0;
